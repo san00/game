@@ -10,17 +10,18 @@ import Results from "./components/Results";
 import "./App.css";
 
 const App: React.FC<Record<string, never>> = () => {
-	const [score, setScore] = useState(5);
+	const [score, setScore] = useState<number>(5);
+	const [userChoice, setUserChoice] = useState<string | undefined>();
 	return (
 		<Router>
 			<main>
 				<Header score={score} />
 				<Switch>
 					<Route exact path="/">
-						<Game setScore={setScore} />
+						<Game setUserChoice={setUserChoice} />
 					</Route>
 					<Route path="/results">
-						<Results />
+						<Results setScore={setScore} choice={userChoice} />
 					</Route>
 				</Switch>
 				<Footer />
