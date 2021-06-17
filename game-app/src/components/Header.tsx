@@ -1,9 +1,9 @@
 import React from 'react'
 interface HeaderProps {
-    score:number
+    score: number
 }
 
-function Header({score}: HeaderProps) {
+const Header: React.FC<HeaderProps> = ({ score }: HeaderProps) => {
     return (
         <div>
             <p>points:{score}</p>

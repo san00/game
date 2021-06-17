@@ -1,11 +1,14 @@
-import React from 'react'
-
-function Game() {
-    return (
-        <div>
-           <p>game comp</p> 
-        </div>
-    )
+import React from "react";
+interface GameProps {
+    setScore: (score: number) => void;
 }
 
-export default Game
+const Game: React.FC<GameProps> = () => {
+    return (
+        <div>
+            <p>game comp</p>
+        </div>
+    );
+};
+
+export default Game;
