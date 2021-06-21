@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
 interface GameProps {
     setUserChoice: (userChoice?: string) => void;
+    setCompChoice: (computerChoice?: string | number) => void;
 
 }
-const Game: React.FC<GameProps> = ({ setUserChoice }: GameProps) => {
+const Game: React.FC<GameProps> = ({ setUserChoice, setCompChoice }: GameProps) => {
 
 
     const setChoiceOnClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         setUserChoice(e.currentTarget.dataset.id)
 
     }
+
+    useEffect(() => {
+        const setRandomComputerChoice = () => {
+            const choice = ["rock ", "paper", "scissors"];
+            setCompChoice(choice[Math.floor(Math.random() * choice.length)])
+        }
+        setRandomComputerChoice()
+    }, [setCompChoice])
+
 
     return (
         <div>
