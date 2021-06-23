@@ -16,7 +16,7 @@ const Results: React.FC<ResultsProps> = ({ choice, score, setScore, userMessage,
     useEffect(() => {
         const res = () => {
             if (choice === computerChoice) {
-                setUserMessage("The game is tied")
+                return setUserMessage("The game is tied")
             } else {
                 if (choice === "rock" && computerChoice === "scissors" ||
                     choice === "paper" && computerChoice === "rock" ||
@@ -25,7 +25,7 @@ const Results: React.FC<ResultsProps> = ({ choice, score, setScore, userMessage,
                     return setUserMessage("Player wins")
                 }
                 setScore(score -= 1)
-                setUserMessage("comp wins")
+                return setUserMessage("comp wins")
             }
         }
         res()
