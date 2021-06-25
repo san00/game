@@ -5,6 +5,7 @@ interface GameProps {
     setCompChoice: (computerChoice?: string | number) => void;
 
 }
+
 const Game: React.FC<GameProps> = ({ setUserChoice, setCompChoice }: GameProps) => {
 
 
@@ -19,12 +20,12 @@ const Game: React.FC<GameProps> = ({ setUserChoice, setCompChoice }: GameProps) 
             setCompChoice(choice[Math.floor(Math.random() * choice.length)])
         }
         setRandomComputerChoice()
+
     }, [setCompChoice])
 
 
     return (
         <div>
-            <p>game comp</p>
             <Link to="/results">
                 <button data-id="rock" onClick={setChoiceOnClick} >rock</button>
             </Link>

@@ -6,7 +6,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ score }: HeaderProps) => {
     return (
         <div>
-            <p>points:{score}</p>
+            <p>Score{score}</p>
         </div>
     )
 }

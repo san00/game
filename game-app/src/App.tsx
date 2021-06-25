@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-
+import GlobalStyle from "./global/global-style";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Game from "./components/Game";
-import Results from "./components/Results";
-
-import "./App.css";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import Game from "./components/game/Game";
+import Results from "./components/results/Results";
 
 const App: React.FC<Record<string, never>> = () => {
 	const [score, setScore] = useState<number>(0);
@@ -17,6 +15,7 @@ const App: React.FC<Record<string, never>> = () => {
 
 	return (
 		<Router>
+			<GlobalStyle />
 			<main>
 				<Header score={score} />
 				<Switch>

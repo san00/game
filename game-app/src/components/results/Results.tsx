@@ -9,26 +9,28 @@ interface ResultsProps {
     userMessage: string
 }
 
-
-
-
 const Results: React.FC<ResultsProps> = ({ choice, score, setScore, userMessage, setUserMessage, computerChoice }: ResultsProps) => {
     useEffect(() => {
+
         const res = () => {
             if (choice === computerChoice) {
-                return setUserMessage("The game is tied")
+
+                setUserMessage("The game is tied")
+
             } else {
                 if (choice === "rock" && computerChoice === "scissors" ||
                     choice === "paper" && computerChoice === "rock" ||
                     choice === "scissors" && computerChoice === "paper") {
                     setScore(score += 1)
-                    return setUserMessage("Player wins")
+                    setUserMessage("Player wins")
                 }
+
                 setScore(score -= 1)
-                return setUserMessage("comp wins")
+                setUserMessage("comp wins")
             }
         }
         res()
+
     }, [setScore])
 
 
