@@ -2,17 +2,17 @@ import React from 'react'
 interface HeaderProps {
     score: number
 }
-import { Wrapper, InnerWrap, ScoreText, ScoreBoard } from './header-styles'
+import { Wrapper, InnerWrap, ScoreBoardText, ScoreBoard } from './header-styles'
 
 const Header: React.FC<HeaderProps> = ({ score }: HeaderProps) => {
     return (
         <Wrapper>
             <InnerWrap>
-                <ScoreText>Rock</ScoreText>
-                <ScoreText>Paper</ScoreText>
-                <ScoreText>Scissors</ScoreText>
+                <ScoreBoardText>Rock</ScoreBoardText>
+                <ScoreBoardText>Paper</ScoreBoardText>
+                <ScoreBoardText>Scissors</ScoreBoardText>
             </InnerWrap>
-            <ScoreBoard >Score{score}</ScoreBoard>
+            <ScoreBoard >Score {score}</ScoreBoard>
         </Wrapper>
 
     )
