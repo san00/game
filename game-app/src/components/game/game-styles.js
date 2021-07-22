@@ -9,6 +9,15 @@ export const Wrapper = styled.section`
 
 export const Button = styled.button`
   width: auto;
-  height: 100%;
   padding: ${spacingScale.spacing_l};
+  margin: ${spacingScale.spacing_xl};
+  border-style: solid;
+  border-radius: 5%;
+  box-shadow: ${(props) =>
+    props.blue
+      ? "0 0 0 20px #526df7"
+      : props.yellow
+      ? "0 0 0 20px #eaab23"
+      : "0 0 0 20px #ed5068"};
+  filter: drop-shadow(10px 0px 10px rgba(0 0 0 / 30%));
 `;
