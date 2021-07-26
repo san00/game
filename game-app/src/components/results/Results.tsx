@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
+import { Wrapper, InnerWrap, GameIcon, UserMessage, NewGameButton } from "../results/results-styles";
 interface ResultsProps {
     setScore: (score: number) => void;
     choice: string | undefined;
@@ -33,17 +34,16 @@ const Results: React.FC<ResultsProps> = ({ choice, score, setScore, userMessage,
 
     }, [setScore])
 
-
     return (
-        <div>
-            <p>Results comp</p>
-            <p>You picked {choice}</p>
-            <p>Computer picked {computerChoice}</p>
-            <p>{userMessage}</p>
-            <Link to="/">
-                <button>Play again</button>
-            </Link>
-        </div>
+        <Wrapper>
+            <GameIcon >You picked {choice} </GameIcon>
+            <InnerWrap>
+                <UserMessage>{userMessage}</UserMessage>
+                <Link to="/">
+                    <NewGameButton>Play again</NewGameButton>
+                </Link></InnerWrap>
+            <GameIcon >Computer picked {computerChoice}</GameIcon>
+        </Wrapper>
     );
 };
 
