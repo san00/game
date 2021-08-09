@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
+import { Wrapper, InnerWrap, GameIcon, UserMessage, NewGameButton } from "../results/results-styles";
 interface ResultsProps {
     setScore: (score: number) => void;
     choice: string | undefined;
@@ -9,39 +10,40 @@ interface ResultsProps {
     userMessage: string
 }
 
-
-
-
 const Results: React.FC<ResultsProps> = ({ choice, score, setScore, userMessage, setUserMessage, computerChoice }: ResultsProps) => {
     useEffect(() => {
+
         const res = () => {
             if (choice === computerChoice) {
-                return setUserMessage("The game is tied")
+
+                setUserMessage("The game is tied")
+
             } else {
                 if (choice === "rock" && computerChoice === "scissors" ||
                     choice === "paper" && computerChoice === "rock" ||
                     choice === "scissors" && computerChoice === "paper") {
                     setScore(score += 1)
-                    return setUserMessage("Player wins")
+                    setUserMessage("Player wins")
                 }
+
                 setScore(score -= 1)
-                return setUserMessage("comp wins")
+                setUserMessage("comp wins")
             }
         }
         res()
+
     }, [setScore])
 
-
     return (
-        <div>
-            <p>Results comp</p>
-            <p>You picked {choice}</p>
-            <p>Computer picked {computerChoice}</p>
-            <p>{userMessage}</p>
-            <Link to="/">
-                <button>Play again</button>
-            </Link>
-        </div>
+        <Wrapper>
+            <GameIcon >You picked {choice} </GameIcon>
+            <InnerWrap>
+                <UserMessage>{userMessage}</UserMessage>
+                <Link to="/">
+                    <NewGameButton>Play again</NewGameButton>
+                </Link></InnerWrap>
+            <GameIcon >Computer picked {computerChoice}</GameIcon>
+        </Wrapper>
     );
 };
 
