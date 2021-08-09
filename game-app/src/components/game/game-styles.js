@@ -11,11 +11,11 @@ export const Wrapper = styled.section`
   background-position: center center;
   position: relative;
   top: 8em;
-  z-index: -1;
 `;
 
 export const Button = styled.button`
   width: auto;
+  cursor: pointer;
   padding: ${spacingScale.spacing_l};
   margin: ${spacingScale.spacing_xl};
   border-style: solid;
@@ -38,4 +38,7 @@ export const Button = styled.button`
     if (props.bottomL) return "-4em";
     return "0";
   }};
+  & svg {
+    cursor: pointer;
+  }
 `;
