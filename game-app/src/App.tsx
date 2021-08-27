@@ -9,8 +9,7 @@ import Results from "./components/results/Results";
 
 const App: React.FC<Record<string, never>> = () => {
 	const [score, setScore] = useState<number>(0);
-	const [userChoice, setUserChoice] = useState<string | undefined>();
-	const [compChoice, setCompChoice] = useState<string | number | undefined>();
+	const [userChoice, setUserChoice] = useState<string>("");
 	const [userMessage, setUserMessage] = useState<string>("");
 
 	return (
@@ -20,10 +19,10 @@ const App: React.FC<Record<string, never>> = () => {
 				<Header score={score} />
 				<Switch>
 					<Route exact path="/">
-						<Game setUserChoice={setUserChoice} setCompChoice={setCompChoice} />
+						<Game setUserChoice={setUserChoice} />
 					</Route>
 					<Route path="/results">
-						<Results score={score} setScore={setScore} choice={userChoice} computerChoice={compChoice} userMessage={userMessage} setUserMessage={setUserMessage} />
+						<Results score={score} setScore={setScore} choice={userChoice} userMessage={userMessage} setUserMessage={setUserMessage} />
 					</Route>
 				</Switch>
 				<Footer />
